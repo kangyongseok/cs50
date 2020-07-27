@@ -76,7 +76,7 @@ int resultGradePoint(int numGrade, int length) {
     for (int j = 0; j < length; j++) {
         if (numGrade == 0) {
             printf("학점은 F 입니다.\n");
-            break;\
+            break;
         }
         if (numGrade >= 95) {
             printf("학점은 A+ 입니다.\n");
