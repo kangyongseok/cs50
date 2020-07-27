@@ -1,4 +1,7 @@
 #include <stdio.h>
+#include <string.h>
+#include <ctype.h> 
+
 #define MAX 10
 #define TRUE 1
 #define FALSE 0
@@ -12,12 +15,13 @@ void enqueue(void);
 void dequeue(void);
 void quit(void);
 void display(void);
-
 int get_int(char *text);
 
 int main(void) {
     while(!loopEnd) {
         int option = get_int("옵션번호를 입력하세요(1. enqueue, 2. dequeue, 3. display, 4. quit) : ");
+        // getchar 는 stdin에있는 문자를 읽어들이는데 그러면 scanf 입력버퍼에 남아있던 \n 을 가져옴 != \n 처리를 한 이유는 그냥 getchar() 함수를 사용하면 띄어쓰기 이후에 남아있던 다른 문자까지 모두 가져와 입력버퍼에서 제거해버리기 때문에 필요한 비교구문
+        while (getchar() != '\n'); 
         switch(option) {
             case 1:
                 enqueue();
