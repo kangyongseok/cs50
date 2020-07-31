@@ -2,5 +2,6 @@
 
 int main(void)
 {
-    printf("%lu", sizeof(100000000000));
+    char text[10] = {"A+"};  
+    printf("%c%c", text[0], text[1]);
 }
