@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 // #include <math.h>
 #define TRUE 1
 #define FALSE 0
@@ -18,10 +19,17 @@ void findCenterHouse(int arr[], int count);
 int averageDistance(int arr[], int count);
 
 int main(void) {
+    clock_t start, end;
+    double result;
+    start = clock(); //시간 측정 시작
     findCenterHouse(inputData_1, sizeof(inputData_1) / sizeof(int));
     findCenterHouse(inputData_2, sizeof(inputData_2) / sizeof(int));
     findCenterHouse(inputData_3, sizeof(inputData_3) / sizeof(int));
     findCenterHouse(inputData_4, sizeof(inputData_4) / sizeof(int));
+
+    end = clock(); //시간 측정 끝
+    result = (double)(end - start);
+    printf("실행시간: %.0f\n", result);
 
     return 0;
 }
