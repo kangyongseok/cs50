@@ -1,11 +1,13 @@
 #include <stdio.h>
-#include <math.h>
+#include <stdlib.h>
+// #include <math.h>
 #define TRUE 1
 #define FALSE 0
 
 // 요구사항 자체가 거리를 예시로들면서 정해진 순서대로 숫자가 입력된다고 보았습니다.
 // 요구사항에는 없는 정렬코드가 들어가게되면 불필요한 로직이 생기고 불필요한 실행시간이 소요되기때문에 순수하게 거리의 센터위치를 구현하는데 중점을 두었습니다.
 // 정렬 관련된 문제가 아닌것같아서 저는 모든 값은 이미 정렬된 순서대로 들어온다고 가정하고 코드를 작성하였습니다.
+// 입력된 배열 내에서 센터에 가장 근접한 값을 찾아 리턴하는 문제라고 이해하고 접근하였습니다.
 int inputData_1[4] = {0, 4, 6, 9};
 int inputData_2[4] = {2, 2, 2, 4};
 int inputData_3[6] = {1, 2, 3, 5, 7, 9};
@@ -20,6 +22,8 @@ int main(void) {
     findCenterHouse(inputData_2, sizeof(inputData_2) / sizeof(int));
     findCenterHouse(inputData_3, sizeof(inputData_3) / sizeof(int));
     findCenterHouse(inputData_4, sizeof(inputData_4) / sizeof(int));
+
+    return 0;
 }
 
 void findCenterHouse(int arr[], int count) {

@@ -8,4 +8,6 @@ int main(void)
     scanf("%d", &goalMoney);
 
     printf("%.0f", (goalMoney * 0.012) + goalMoney);
+
+    return 0;
 }

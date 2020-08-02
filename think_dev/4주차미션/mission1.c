@@ -31,6 +31,7 @@ int main(void) {
     compare(bubbleSort_1, bubbleSort_2);
     compare(recursive_1, recursive_2);
 
+    return 0;
 }
 
 void selectSort(int *arr) {

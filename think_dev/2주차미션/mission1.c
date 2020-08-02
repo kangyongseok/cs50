@@ -17,4 +17,6 @@ int main(void)
     printf("기존 재고량 : %d개\n", currentCount);
     printf("남은 재고량 : %d개\n", restCount);
     printf("매출액(부가세포함) : %.0f원\n", (totalPrice * vat) + totalPrice);
+
+    return 0;
 }
