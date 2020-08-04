@@ -46,6 +46,8 @@ int main(void) {
 
         resultGradePoint(numGrade, arrNum);
     }
+
+    return 0;
 }
 
 void printGradeTable(char *label, const char *target[]) {

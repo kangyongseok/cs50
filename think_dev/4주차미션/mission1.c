@@ -10,7 +10,7 @@ void swap(int x, int y, int tmp, int *arr);
 void compare(int *x, int *y);
 void merge(int *arr, int start, int mid, int end);
 
-int selectSort_1[MAX] = {1, 0, 3, 4, 5};
+int selectSort_1[MAX] = {1, 2, 3, 4, 5};
 int selectSort_2[MAX] = {5, 4, 3, 0, 1};
 int bubbleSort_1[MAX] = {1, 4, 2, 5, 8};
 int bubbleSort_2[MAX] = {2, 5, 4, 3, 1};
@@ -31,6 +31,7 @@ int main(void) {
     compare(bubbleSort_1, bubbleSort_2);
     compare(recursive_1, recursive_2);
 
+    return 0;
 }
 
 void selectSort(int *arr) {
@@ -64,6 +65,17 @@ void bubbleSort(int *arr) {
     }
 }
 
+void mergeSort(int *arr, int start, int end) {
+    // 재귀정렬
+    if (start < end) {
+        int mid = (start + end) / 2;
+        // printf("mid: %d\n", mid);
+        mergeSort(arr, start, mid); // 배열의 처음부터 중간까지
+        mergeSort(arr, mid + 1, end); // 배열의 중간 다음배열부터 마지막 배열까지
+        merge(arr, start, mid, end); // mergeSort 의 실행이 모두 끝나야 merge 함수실행
+    }
+}
+
 // 기타 사용 함수
 void swap(int x, int y, int tmp, int *arr) {
     tmp = arr[x];
@@ -76,10 +88,10 @@ void compare(int *x, int *y) {
     for (int i = 0; i < MAX; i++) {
         if (x[i] != y[i]) {
             result = FALSE;
+            break;
         } else {
             result = TRUE;
         }
-        if (result == 0) break;
     }
     printf("입력값: %d%d%d%d%d, %d%d%d%d%d ", x[0], x[1], x[2], x[3], x[4], y[0], y[1], y[2], y[3], y[4]);
     printf("출력값: %s\n", result == 0 ? "False" : "True");
@@ -114,16 +126,5 @@ void merge(int *arr, int start, int mid, int end) {
     }
     for (int t = start; t <= end; t++) { // 정렬된 배열을 원래 배열에 넣는다.
         arr[t] = mergeSortResult[t];
-    }
-}
-
-void mergeSort(int *arr, int start, int end) {
-    // 재귀정렬
-    if (start < end) {
-        int mid = (start + end) / 2;
-        // printf("mid: %d\n", mid);
-        mergeSort(arr, start, mid); // 배열의 처음부터 중간까지
-        mergeSort(arr, mid + 1, end); // 배열의 중간 다음배열부터 마지막 배열까지
-        merge(arr, start, mid, end); // mergeSort 의 실행이 모두 끝나야 merge 함수실행
     }
 }
