@@ -19,7 +19,6 @@ int recursive_2[MAX] = {2, 1, 1, 3, 1};
 int mergeSortResult[MAX]; // 병합정렬된 배열이 들어갈 변수
 
 int main(void) {
-
     selectSort(selectSort_1);
     selectSort(selectSort_2);
     bubbleSort(bubbleSort_1);
