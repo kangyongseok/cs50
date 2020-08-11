@@ -8,6 +8,7 @@ void strncpyPlay(void);
 void strcpyPlay(void);
 void memsetPLay(void);
 void memmovePlay(void);
+void memcmpPlay(void);
 
 int main(void) {
 
@@ -15,6 +16,7 @@ int main(void) {
     strncpyPlay();
     memsetPLay();
     memmovePlay();
+    memcmpPlay();
 }
 
 void strncpyPlay(void) {
@@ -50,5 +52,14 @@ void memmovePlay(void) {
     for (int i = 0; i < 5; i++) {
         printf("%d", arr[i]);
     }
+    printf("\n");
+}
+
+void memcmpPlay(void) {
+    int arr1[5] = {1, 2, 3, 4, 5};
+    // int arr2[5] = {1, 2, 3, 4, 5};
+    int arr2[5] = {6, 7, 8, 9, 10};
+    int result = memcmp(arr1, arr2, sizeof(int));
+    printf("%d\n", result);    
     printf("\n");
 }
