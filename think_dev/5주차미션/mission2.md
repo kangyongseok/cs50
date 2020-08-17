@@ -30,6 +30,7 @@ strncpy 는 마지막 인자값으로 지정한 크기만큼만 복사를 진행
 
 ## 3) 메모리 초기화, 복사, 이동, 비교와 같은 함수가 라이브러리에 있습니다. 사용방법을 숙지하고, 간단하게 코드로 구현 후 정상적으로 동작이 되는지 확인해보세요.
 
+### 함수 종류
 ```c
 #include <string.h>
 
@@ -53,8 +54,8 @@ memmove = 복사할 메모리의 내용을 임시공간에 저장한다음 복�
 
 예전에는 두 함수의 차이가 있었는데 현재는 오류나 차이가 많이 좁혀졌다고함
 */
-void *memcpy(void *dest, const void *src, size_t count)
-void *memmove(void *dest, const void *src, size_t count)
+void *memcpy(void *dest, const void *src, size_t count);
+void *memmove(void *dest, const void *src, size_t count);
 
 // 메모리 비교
 /*
@@ -69,4 +70,73 @@ n = 비교할 바이트 크기
 */
 int memcmp ( const void * str1, const void * str2, size_t n );
 
+```
+
+### 실행코드
+```c
+#include <stdio.h>
+#include <string.h>
+
+char str1[13] = "Hello, world";
+char str2[6] = "abcde";
+
+void strncpyPlay(void);
+void strcpyPlay(void);
+void memsetPLay(void);
+void memmovePlay(void);
+void memcmpPlay(void);
+
+int main(void) {
+
+    strcpyPlay();
+    strncpyPlay();
+    memsetPLay();
+    memmovePlay();
+    memcmpPlay();
+}
+
+void strncpyPlay(void) {
+    strncpy(str1, str2, sizeof(str1) - 1);
+    printf("%s\n", str1);
+    for (int i = 0; i < 13; i++) {
+        printf("%c", str1[i]);
+    }
+    printf("\n");
+}
+
+void strcpyPlay(void) {
+    strcpy(str1, str2);
+    printf("%s\n", str1); // abcde
+    int length = sizeof(str1) / sizeof(char);
+    for (int i = 0; i < length; i++) {
+        printf("%c", str1[i]); // abcde world
+    }
+    printf("\n");
+}
+
+void memsetPLay(void) {
+     memset(str1, 'a', 13 * sizeof(char));
+    for (int i = 0; i < 13; i++) {
+        printf("%c", str1[i]);
+    }
+    printf("\n");
+}
+
+void memmovePlay(void) {
+    int arr[5] = {1, 2, 3, 4, 5};
+    memmove(arr, arr + 1, sizeof(int) * 3);
+    for (int i = 0; i < 5; i++) {
+        printf("%d", arr[i]);
+    }
+    printf("\n");
+}
+
+void memcmpPlay(void) {
+    int arr1[5] = {1, 2, 3, 4, 5};
+    // int arr2[5] = {1, 2, 3, 4, 5};
+    int arr2[5] = {6, 7, 8, 9, 10};
+    int result = memcmp(arr1, arr2, sizeof(int));
+    printf("%d\n", result);    
+    printf("\n");
+}
 ```
