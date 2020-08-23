@@ -1,12 +1,21 @@
 #include <stdio.h>
 
+char *get_string(char *text) {
+    static char str[100];
+    printf("%s", text);
+    scanf("%s", str);
+    return (char*)str;
+}
+
+int get_int(char *text) {
+    int getInt;
+    printf("%s", text);
+    scanf("%i", &getInt);
+    return getInt;
+}
+
 int main(void) {
-    char c1 = 'H';
-    char c2 = 'I';
-    char c3 = '!';
-    // i 는 int , c 는 char, (int) 는 문자를 ASCII 코드의 숫자형태로 변형
-    printf("%i %i %i\n", (int)c1, (int)c2, (int)c3);
-    // 실제 메모리에 저장된 형태
-    //     c1               c2            c3
-    // 01001000 (72), 01001001 (73), 00100001 (33)
+    char *text = get_string("입력하시오.");
+    printf("%s", text);
+    return 0;
 }

@@ -16,8 +16,11 @@ void dequeue(void);
 void quit(void);
 void display(void);
 int get_int(char *text);
+char get_string(char *text);
 
 int main(void) {
+    char string[50] = get_string("what?");
+    printf("%s\n", string);
     while(!loopEnd) {
         int option = get_int("옵션번호를 입력하세요(1. enqueue, 2. dequeue, 3. display, 4. quit) : ");
         // getchar 는 stdin에있는 문자를 읽어들이는데 그러면 scanf 입력버퍼에 남아있던 \n 을 가져옴 != \n 처리를 한 이유는 그냥 getchar() 함수를 사용하면 띄어쓰기 이후에 남아있던 다른 문자까지 모두 가져와 입력버퍼에서 제거해버리기 때문에 필요한 비교구문
@@ -85,4 +88,11 @@ int get_int(char *text) {
     printf("%s", text);
     scanf("%i", &getInt);
     return getInt;
+}
+
+char get_string(char *text) {
+    char str[50];
+    printf("%s", text);
+    gets(str);
+    return str;
 }
