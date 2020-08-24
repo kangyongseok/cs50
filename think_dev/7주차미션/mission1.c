@@ -68,6 +68,6 @@ void use_public_transit() {
     도보로 회사까지 이동
     move(walking);
 }
-
+0
 
 */
